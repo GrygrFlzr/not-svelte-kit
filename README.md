@@ -1,6 +1,8 @@
 ## Current support
 
--   `@sveltejs/kit: 1.0.0-next.32`
+-   `@sveltejs/kit:`
+    -   `1.0.0-next.32`
+    -   `1.0.0-next.33`
 
 # What is this?
 
@@ -14,6 +16,12 @@ This is an **UNOFFICIAL** compatibility wrapper around the CLI to work around th
 
 It is intended as a temporary drop-in substitute to the `svelte-kit` CLI.
 
+## Usage
+
+```sh
+npm i -D not-svelte-kit
+```
+
 Replace executions of `svelte-kit` with `not-svelte-kit` in your `package.json` scripts:
 
 ```json
@@ -23,5 +31,7 @@ Replace executions of `svelte-kit` with `not-svelte-kit` in your `package.json` 
     "start": "not-svelte-kit start"
 },
 ```
+
+`npx not-svelte-kit adapt` is also supported.
 
 This bodge brought to you by [SK Incognito](https://discord.gg/j7NhbT2DSY).

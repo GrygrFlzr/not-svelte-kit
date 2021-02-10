@@ -4,7 +4,7 @@ import colors from 'kleur';
 import { adapt, build, dev, load_config, start } from './api/index.js';
 
 const pkg = {
-    version: '1.0.0-next.32',
+    version: '1.0.0-next.33',
 };
 
 function get_config() {
