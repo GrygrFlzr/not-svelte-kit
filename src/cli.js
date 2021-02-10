@@ -1,7 +1,7 @@
 import { existsSync } from 'fs';
 import sade from 'sade';
 import colors from 'kleur';
-import { load_config } from './api.js';
+import { adapt, build, dev, load_config, start } from './api/index.js';
 
 const pkg = {
     version: '1.0.0-next.32',
@@ -56,7 +56,7 @@ prog.command('dev')
         process.env.NODE_ENV = 'development';
         const config = await get_config();
 
-        const { dev } = await import('./api/dev');
+        // const { dev } = await import('./api/dev');
 
         try {
             const watcher = await dev({ port, config });
@@ -86,7 +86,7 @@ prog.command('build')
         process.env.NODE_ENV = 'production';
         const config = await get_config();
 
-        const { build } = await import('./api/build');
+        // const { build } = await import('./api/build');
 
         try {
             await build(config);
@@ -103,7 +103,7 @@ prog.command('start')
         process.env.NODE_ENV = 'production';
         const config = await get_config();
 
-        const { start } = await import('./api/start');
+        // const { start } = await import('./api/start');
 
         try {
             await start({ port, config });
@@ -124,7 +124,7 @@ prog.command('adapt')
         process.env.NODE_ENV = 'production';
         const config = get_config();
 
-        const { adapt } = await import('./api/adapt');
+        // const { adapt } = await import('./api/adapt');
 
         try {
             await adapt(config, { verbose });

@@ -1,5 +1,5 @@
 {
-    "name": "sk-wrapper",
+    "name": "not-svelte-kit",
     "version": "0.0.1-next.32",
     "description": "Wrapper around @sveltejs/kit to fix issues",
     "type": "module",
@@ -7,13 +7,25 @@
     "bin": {
         "not-svelte-kit": "index.js"
     },
+    "exports": {
+        "./api": {
+            "import": "./src/api.js"
+        },
+        "./renderer": {
+            "import": "./src/renderer.js"
+        }
+    },
     "author": "GrygrFlzr <grygrflzr@hotmail.com>",
     "license": "(MIT OR Apache-2.0)",
     "dependencies": {
-        "@sveltejs/kit": "^1.0.0-next.32",
-        "kleur": "^4.1.4",
-        "sade": "^1.7.4",
-        "source-map-support": "^0.5.19"
+        "sade": "^1.7.4"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "@sveltejs/kit": "^1.0.0-next.32",
+        "import-meta-resolve": "^0.1.0",
+        "kleur": "^4.1.4",
+        "sirv": "^1.0.11",
+        "source-map-support": "^0.5.19",
+        "tiny-glob": "^0.2.8"
+    }
 }
