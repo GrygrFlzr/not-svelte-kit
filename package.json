@@ -1,6 +1,6 @@
 {
     "name": "not-svelte-kit",
-    "version": "0.0.1-next.32",
+    "version": "0.0.2-next.32",
     "description": "Wrapper around @sveltejs/kit to fix issues",
     "type": "module",
     "main": "index.js",
@@ -18,14 +18,16 @@
     "author": "GrygrFlzr <grygrflzr@hotmail.com>",
     "license": "(MIT OR Apache-2.0)",
     "dependencies": {
-        "sade": "^1.7.4"
-    },
-    "devDependencies": {
         "@sveltejs/kit": "^1.0.0-next.32",
         "import-meta-resolve": "^0.1.0",
         "kleur": "^4.1.4",
+        "sade": "^1.7.4",
         "sirv": "^1.0.11",
         "source-map-support": "^0.5.19",
         "tiny-glob": "^0.2.8"
-    }
+    },
+    "devDependencies": {},
+    "keywords": [
+        "svelte"
+    ]
 }
