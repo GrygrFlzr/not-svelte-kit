@@ -1,6 +1,6 @@
 {
     "name": "not-svelte-kit",
-    "version": "0.0.4-next.34",
+    "version": "0.0.5-next.34",
     "description": "Wrapper around @sveltejs/kit to fix issues",
     "type": "module",
     "main": "index.js",

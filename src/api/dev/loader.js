@@ -8,20 +8,26 @@ export default function loader(sp) {
     const cache = new Map();
     const graph = new Map();
 
-    const get_module = (importer, imported, url_stack) => {
+    const get_module = async (importer, imported, url_stack) => {
         if (imported[0] === '/' || imported[0] === '.') {
             const pathname = resolve(importer, imported);
 
             if (!graph.has(pathname)) graph.set(pathname, new Set());
             graph.get(pathname).add(importer);
 
-            return load(pathname, url_stack);
+            return await load(pathname, url_stack);
         }
 
-        // this resolves the dependency as @sveltejs/kit
-        //return import(imported);
+        // original @sveltejs/kit resolution
+        // this resolves some dependencies as @sveltejs/kit
+        // works for e.g. node-fetch
+        const resolved = await import(imported);
+        if (resolved) {
+            return resolved;
+        }
+        // not esm-compatible? e.g. firebase-admin
         // we want to resolve it as the app instead
-        return importMetaResolve(imported, import.meta.url);
+        return await importMetaResolve(imported, import.meta.url);
     };
 
     const invalidate_all = (path) => {
