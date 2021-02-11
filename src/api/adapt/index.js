@@ -1,19 +1,11 @@
 import colors from 'kleur';
 import { pathToFileURL } from 'url';
 import { join } from 'path';
-import { importMetaResolve } from 'import-meta-resolve';
 import Builder from './Builder.js';
+import { createRequire } from 'module';
 
-// adapt is not exposed by the API
+// utils is not exposed by the API
 // gotta use this bodge instead
-const adapt_path = join(
-    process.cwd(),
-    'node_modules',
-    '@sveltejs',
-    'kit',
-    'dist',
-    'index6.js'
-);
 const utils_path = join(
     process.cwd(),
     'node_modules',
@@ -25,16 +17,17 @@ const utils_path = join(
 
 /**
  *
- * @param {Promise<Record<string, any>>} config
+ * @param {Promise<Record<string, any>>} config_promise
  * @param {{ verbose: boolean }}
  */
-export async function adapt(config, { verbose }) {
+export async function adapt(config_promise, { verbose }) {
     const { l: logger } = await import(pathToFileURL(utils_path));
-    // const { adapt: kit_adapt } = await import(pathToFileURL(adapt_path));
-    // const resolved_config = await config;
-    // return await kit_adapt(resolved_config, { verbose });
-    const resolved_config = await config;
-    const [adapter, options] = resolved_config.adapter;
+    const config = await config_promise;
+    if (!config.adapter) {
+        throw new Error('No adapter specified');
+    }
+
+    const [adapter, options] = config.adapter;
 
     if (!adapter) {
         throw new Error('No adapter specified');
@@ -46,15 +39,13 @@ export async function adapt(config, { verbose }) {
 
     const builder = new Builder({
         generated_files: '.svelte/build/optimized',
-        config: resolved_config,
+        config: config,
         log,
     });
 
-    const resolved = await importMetaResolve(
-        join(adapter, 'index.js'),
-        process.cwd() //pathToFileURL(process.cwd())
-    );
-    const { default: fn } = await import(resolved);
+    const require = createRequire(import.meta.url);
+    const resolved = require.resolve(adapter, pathToFileURL(process.cwd()));
+    const { default: fn } = await import(pathToFileURL(resolved));
     await fn(builder, options);
 
     log.success('done');

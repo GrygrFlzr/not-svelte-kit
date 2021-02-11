@@ -3,6 +3,7 @@
 -   `@sveltejs/kit:`
     -   `1.0.0-next.32`
     -   `1.0.0-next.33`
+    -   `1.0.0-next.34`
 
 # What is this?
 
