@@ -1,6 +1,6 @@
 {
     "name": "not-svelte-kit",
-    "version": "0.0.3-next.34",
+    "version": "0.0.4-next.34",
     "description": "Wrapper around @sveltejs/kit to fix issues",
     "type": "module",
     "main": "index.js",
@@ -17,11 +17,28 @@
     },
     "author": "GrygrFlzr <grygrflzr@hotmail.com>",
     "license": "(MIT OR Apache-2.0)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GrygrFlzr/not-svelte-kit.git"
+    },
+    "bugs": "https://github.com/GrygrFlzr/not-svelte-kit/issues",
     "dependencies": {
+        "@sveltejs/app-utils": "^1.0.0-next.1",
         "@sveltejs/kit": "^1.0.0-next.34",
+        "amphtml-validator": "^1.0.34",
+        "cheap-watch": "^1.0.3",
+        "estree-walker": "^3.0.0",
+        "import-meta-resolve": "^0.1.0",
+        "is-reference": "^2.0.0",
         "kleur": "^4.1.4",
+        "magic-string": "^0.25.7",
+        "meriyah": "^4.1.2",
+        "periscopic": "^3.0.0",
+        "port-authority": "^1.1.2",
         "sade": "^1.7.4",
+        "scorta": "^1.0.0",
         "sirv": "^1.0.11",
+        "snowpack": "^3.0.11",
         "source-map-support": "^0.5.19",
         "tiny-glob": "^0.2.8"
     },

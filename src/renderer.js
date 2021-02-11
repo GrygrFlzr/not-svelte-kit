@@ -1,2 +1,2 @@
 // Re-export render
-export { render } from '@sveltejs/kit/api';
+export { render } from '@sveltejs/kit/renderer';

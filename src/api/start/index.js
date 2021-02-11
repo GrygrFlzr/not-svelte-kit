@@ -3,17 +3,7 @@ import * as http from 'http';
 import { parse, pathToFileURL, URLSearchParams } from 'url';
 import sirv from 'sirv';
 import { join } from 'path';
-
-// import { get_body } from '@sveltejs/app-utils/http';
-// app-utils is not exposed by the API
-const http_utils_path = join(
-    process.cwd(),
-    'node_modules',
-    '@sveltejs',
-    'kit',
-    'dist',
-    'index5.js'
-);
+import { get_body } from '@sveltejs/app-utils/http';
 
 const mutable = (dir) =>
     sirv(dir, {
@@ -22,9 +12,6 @@ const mutable = (dir) =>
     });
 
 export async function start({ port, config }) {
-    // this is EXTREMELY fragile
-    const { g: get_body } = await import(pathToFileURL(http_utils_path));
-
     // const app_file = resolve('.svelte/build/optimized/server/app.js');
     // const app = await import(app_file);
     const app_file_url = join(

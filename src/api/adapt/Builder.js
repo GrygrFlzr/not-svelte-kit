@@ -1,4 +1,4 @@
-import { copy } from '../../app-utils/files/index.js';
+import { copy } from '@sveltejs/app-utils/files';
 import { prerender } from './prerender.js';
 
 export default class Builder {

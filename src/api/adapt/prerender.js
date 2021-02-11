@@ -2,7 +2,7 @@ import fs, { readFileSync } from 'fs';
 import { dirname, join, resolve as resolve_path } from 'path';
 import { parse, pathToFileURL, resolve, URLSearchParams } from 'url';
 import glob from 'tiny-glob/sync.js';
-import { mkdirp } from '../../app-utils/files/index.js';
+import { mkdirp } from '@sveltejs/app-utils/files';
 
 function clean_html(html) {
     return html
