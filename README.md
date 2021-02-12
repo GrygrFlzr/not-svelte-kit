@@ -10,8 +10,9 @@
 Version `1.0.0-next.32` of `@sveltejs/kit` broke a number of things:
 
 -   Doesn't run on Windows because of ESM imports using non-URI paths
--   Breaks with existing adapters
--   Adapt process doesn't run on Windows even if it didn't break API
+-   <del>Breaks with existing adapters</del>
+    Fixed in `1.0.0-next.34`
+-   Adapt process also doesn't run on Windows
 -   Application dependencies are being imported as if they were dependencies of `@sveltejs/kit` (and thus failing)
 
 This is an **UNOFFICIAL** compatibility wrapper around the CLI to work around those issues.

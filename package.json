@@ -1,6 +1,6 @@
 {
     "name": "not-svelte-kit",
-    "version": "0.0.5-next.34",
+    "version": "0.0.6-next.34",
     "description": "Wrapper around @sveltejs/kit to fix issues",
     "type": "module",
     "main": "index.js",
@@ -33,6 +33,7 @@
         "kleur": "^4.1.4",
         "magic-string": "^0.25.7",
         "meriyah": "^4.1.2",
+        "mime": "^2.5.0",
         "periscopic": "^3.0.0",
         "port-authority": "^1.1.2",
         "sade": "^1.7.4",
