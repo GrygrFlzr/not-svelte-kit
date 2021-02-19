@@ -4,7 +4,7 @@ import colors from 'kleur';
 import { adapt, build, dev, load_config, start } from './api/index.js';
 
 const pkg = {
-    version: `0.0.6-next.34 (@sveltejs/kit 1.0.0-next.34)`,
+    version: `0.0.7-next.34 (@sveltejs/kit 1.0.0-next.34)`,
 };
 
 async function get_config() {
